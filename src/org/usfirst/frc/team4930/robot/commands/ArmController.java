@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * ArmController Command
  * 
- * @author Thomas : telling the code that it needs the designated "arm"
+ * @author Thomas : Telling the code that it needs the designated "arm".
  *
  */
 public class ArmController extends Command {
