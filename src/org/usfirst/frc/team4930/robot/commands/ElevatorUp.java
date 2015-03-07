@@ -5,6 +5,7 @@ import org.usfirst.frc.team4930.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
+ * ElevatorUp Command
  * 
  * @author Thomas : Telling the code that it needs the designated "elevator"
  *         from the Robot.java file.
