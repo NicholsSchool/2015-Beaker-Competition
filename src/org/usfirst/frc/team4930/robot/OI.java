@@ -22,11 +22,12 @@ public class OI {
 
 	public Joystick joystick0;
 	public Joystick joystick1;
+	public Joystick joystick2;
+
 	public JoystickButton intakeInButton;
 	public JoystickButton intakeOutButton;
 	public JoystickButton elevatorUpButton;
 	public JoystickButton elevatorDownButton;
-	public Joystick joystick2;
 
 	public OI() {
 
