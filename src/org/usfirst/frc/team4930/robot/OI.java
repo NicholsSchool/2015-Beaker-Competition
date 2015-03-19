@@ -3,6 +3,7 @@ package org.usfirst.frc.team4930.robot;
 import org.usfirst.frc.team4930.robot.commands.Autonomous;
 import org.usfirst.frc.team4930.robot.commands.ElevatorDown;
 import org.usfirst.frc.team4930.robot.commands.ElevatorUp;
+import org.usfirst.frc.team4930.robot.commands.ElevatorUpOperator;
 import org.usfirst.frc.team4930.robot.commands.IntakeIn;
 import org.usfirst.frc.team4930.robot.commands.IntakeOut;
 
@@ -35,17 +36,20 @@ public class OI {
 		joystick1 = new Joystick(1);
 		joystick2 = new Joystick(2);
 
-		elevatorDownButton = new JoystickButton(joystick2, 6);
-		elevatorDownButton.whileHeld(new ElevatorDown());
+		elevatorDownButton = new JoystickButton(joystick0, 1);
+		elevatorDownButton.whileHeld(new IntakeOut());
 
-		elevatorUpButton = new JoystickButton(joystick2, 3);
+		elevatorDownButton = new JoystickButton(joystick1, 1);
+		elevatorDownButton.whileHeld(new IntakeIn());
+
+		elevatorUpButton = new JoystickButton(joystick1, 3);
 		elevatorUpButton.whileHeld(new ElevatorUp());
 
-		intakeOutButton = new JoystickButton(joystick2, 5);
-		intakeOutButton.whileHeld(new IntakeOut());
+		elevatorDownButton = new JoystickButton(joystick1, 2);
+		elevatorDownButton.whileHeld(new ElevatorDown());
 
-		intakeInButton = new JoystickButton(joystick2, 4);
-		intakeInButton.whileHeld(new IntakeIn());
+		intakeOutButton = new JoystickButton(joystick2, 1);
+		intakeOutButton.whileHeld(new ElevatorUpOperator());
 
 		SmartDashboard.putData("Autonomous", new Autonomous());
 		SmartDashboard.putData("IntakeIn", new IntakeIn());

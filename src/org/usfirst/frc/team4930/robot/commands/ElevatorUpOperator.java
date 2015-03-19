@@ -5,22 +5,23 @@ import org.usfirst.frc.team4930.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * ArmController Command
+ * ElevatorUpOperator Command
  * 
- * @author Thomas : Telling the code that it needs the designated "arm".
+ * @author Thomas : Telling the code that it needs the designated "elevator"
+ *         from the Robot.java file.
  *
  */
-public class ArmController extends Command {
+public class ElevatorUpOperator extends Command {
 
-	public ArmController() {
-		requires(Robot.arm);
+	public ElevatorUpOperator() {
+		requires(Robot.elevator);
 	}
 
 	protected void initialize() {
 	}
 
 	protected void execute() {
-		Robot.arm.moveCan(Robot.oi.joystick2.getX());
+		Robot.elevator.move(0.25);
 	}
 
 	protected boolean isFinished() {
@@ -28,11 +29,11 @@ public class ArmController extends Command {
 	}
 
 	protected void end() {
-		Robot.arm.stop();
+		Robot.elevator.stop();
 	}
 
 	protected void interrupted() {
-		Robot.arm.stop();
+		Robot.elevator.stop();
 	}
 
 }
