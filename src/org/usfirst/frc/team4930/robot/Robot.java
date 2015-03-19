@@ -4,7 +4,6 @@ import org.usfirst.frc.team4930.robot.commands.Autonomous;
 import org.usfirst.frc.team4930.robot.subsystems.Arm;
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4930.robot.subsystems.Elevator;
-import org.usfirst.frc.team4930.robot.subsystems.Encoders;
 import org.usfirst.frc.team4930.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -32,7 +31,8 @@ public class Robot extends IterativeRobot {
 	public static Intake intake;
 	public static Elevator elevator;
 	public static Arm arm;
-	public static Encoders encoders;
+
+	// public static Encoders encoders;
 
 	public void robotInit() {
 
@@ -42,7 +42,7 @@ public class Robot extends IterativeRobot {
 		intake = new Intake();
 		elevator = new Elevator();
 		arm = new Arm();
-		encoders = new Encoders();
+		// encoders = new Encoders();
 
 		oi = new OI();
 

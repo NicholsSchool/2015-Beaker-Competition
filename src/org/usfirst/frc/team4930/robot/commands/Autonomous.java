@@ -11,9 +11,10 @@
 
 package org.usfirst.frc.team4930.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.Timer;
 import org.usfirst.frc.team4930.robot.Robot;
+
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
@@ -39,125 +40,127 @@ public class Autonomous extends Command {
 	// THIS WILL ONLY RUN ONCE SINCE THE isFinished() METHOD IS SET TO TRUE.
 	protected void execute() {
 
-		/*
-		 * Autonoums Pseudocode
-		 * 
-		 * 1. drive x rotations 
-		 * 2. intake tote 
-		 * 3. lift tote 
-		 * 4. lift can 
-		 * 5. drive x rotations 
-		 * 6. intake 2nd tote/lift 2nd tote
-		 * 7. turn 45 degrees 
-		 * 8. drive x rotations(+, +) 
-		 * 9. elevator down 
-		 * 10. back away 
-		 * 11. intake motors out
-		 */
-
-		// ### 1 ###
-		
-		// be sure to always reset the encoders to zero before counting revolutions
-		Robot.encoders.resetBoth();
-		// get the value for the left encoder
-		int leftEnc = Robot.encoders.getLeftDriveTrain();
-		// get the value for the right encoder
-		int rightEnc = Robot.encoders.getRightDriveTrain();
-
-		// ### 2 ###
-		
-		Robot.arm.moveCan(0.5);
-		Timer.delay(1);
-		Robot.arm.stop();
-
-		// ### 3 ###
-		
-		// run forward for 100 encoder rotations
-		while (leftEnc < 100 && rightEnc < 100) {
-			// run intake motors
-			Robot.intake.rotate(-0.75);
-			// run drive motors
-			Robot.driveTrain.runMotors(0.5, 0.5);
-		}
-		Robot.intake.stop();
+		Robot.driveTrain.runMotors(0.5, 0.5);
+		Timer.delay(2);
 		Robot.driveTrain.stop();
 
-		// ### 4 ###
-		
-		Robot.elevator.move(0.5);
-		Timer.delay(1);
-		Robot.elevator.stop();
+	}
 
-		// ### 5 ###
-		
-		Robot.encoders.resetBoth();
-
-		while (leftEnc < 50 && rightEnc < 50) {
-			// run drive motors
-			Robot.driveTrain.runMotors(0.5, 0.5);
-			// run intake motors
-			Robot.intake.rotate(-0.75);
-		}
-
-		Robot.intake.stop();
-		Robot.driveTrain.stop();
-		
-		// ### 6 ###
-		
-		//Lift totes
-		Robot.elevator.move(0.5);
-		Timer.delay(1);
-		Robot.elevator.stop();
-
-		// ### 7 ###
-		
-		//turn 45 degrees
-		Robot.encoders.resetBoth();
-		while (leftEnc < 50 && rightEnc > -50) {
-			Robot.driveTrain.runMotors(0.5, -0.5);
-		}
-		Robot.driveTrain.stop();
-
-		// ### 8 ###
-		
-		//drive to the autonomous zone
-		Robot.encoders.resetBoth();
-		while (leftEnc < 50 && rightEnc < 50) {
-			Robot.driveTrain.runMotors(1.0, 1.0);
-		}
-		Robot.driveTrain.stop();
-
-		// ### 9 ###
-		
-		// Unloading totes
-		Robot.elevator.move(-0.5);
-		Timer.delay(1);
-		Robot.elevator.stop();
-
-		// ### 10 ###
-		
-		// Backing off while spinning the intake wheel out
-		Robot.encoders.resetBoth();
-		while (leftEnc < -50 && rightEnc > -50) {
-			Robot.driveTrain.runMotors(-1.0, -1.0);
-			Robot.intake.rotate(0.75);
-		}
-		Robot.driveTrain.stop();
-		
-
-		// ######## Code Below Is Commented Out Sample From Kiddy #########
-
-		// run the drive train forward at full throttle
-		// range: -1.0 to 1.0
-		// left value = left pretend joystick value
-		// right value = right pretend joystick value
-		// Robot.driveTrain.runMotors(1.0, 1.0);
-
-		// timer delay for 2 seconds
-		// Timer.delay(2);
-
-		// stop the drive train motors
+	protected void executeWithEncodersThatDontWork() {
+		//
+		// /*
+		// * Autonoums Pseudocode
+		// *
+		// * 1. drive x rotations 2. intake tote 3. lift tote 4. lift can 5.
+		// drive
+		// * x rotations 6. intake 2nd tote/lift 2nd tote 7. turn 45 degrees 8.
+		// * drive x rotations(+, +) 9. elevator down 10. back away 11. intake
+		// * motors out
+		// */
+		//
+		// // ### 1 ###
+		//
+		// // be sure to always reset the encoders to zero before counting
+		// // revolutions
+		// Robot.encoders.resetBoth();
+		// // get the value for the left encoder
+		// int leftEnc = Robot.encoders.getLeftDriveTrain();
+		// // get the value for the right encoder
+		// int rightEnc = Robot.encoders.getRightDriveTrain();
+		//
+		// // ### 2 ###
+		//
+		// Robot.arm.moveCan(0.5);
+		// Timer.delay(1);
+		// Robot.arm.stop();
+		//
+		// // ### 3 ###
+		//
+		// // run forward for 100 encoder rotations
+		// while (leftEnc < 100 && rightEnc < 100) {
+		// // run intake motors
+		// Robot.intake.rotate(-0.75);
+		// // run drive motors
+		// Robot.driveTrain.runMotors(0.5, 0.5);
+		// }
+		// Robot.intake.stop();
 		// Robot.driveTrain.stop();
+		//
+		// // ### 4 ###
+		//
+		// Robot.elevator.move(0.5);
+		// Timer.delay(1);
+		// Robot.elevator.stop();
+		//
+		// // ### 5 ###
+		//
+		// Robot.encoders.resetBoth();
+		//
+		// while (leftEnc < 50 && rightEnc < 50) {
+		// // run drive motors
+		// Robot.driveTrain.runMotors(0.5, 0.5);
+		// // run intake motors
+		// Robot.intake.rotate(-0.75);
+		// }
+		//
+		// Robot.intake.stop();
+		// Robot.driveTrain.stop();
+		//
+		// // ### 6 ###
+		//
+		// // Lift totes
+		// Robot.elevator.move(0.5);
+		// Timer.delay(1);
+		// Robot.elevator.stop();
+		//
+		// // ### 7 ###
+		//
+		// // turn 45 degrees
+		// Robot.encoders.resetBoth();
+		// while (leftEnc < 50 && rightEnc > -50) {
+		// Robot.driveTrain.runMotors(0.5, -0.5);
+		// }
+		// Robot.driveTrain.stop();
+		//
+		// // ### 8 ###
+		//
+		// // drive to the autonomous zone
+		// Robot.encoders.resetBoth();
+		// while (leftEnc < 50 && rightEnc < 50) {
+		// Robot.driveTrain.runMotors(1.0, 1.0);
+		// }
+		// Robot.driveTrain.stop();
+		//
+		// // ### 9 ###
+		//
+		// // Unloading totes
+		// Robot.elevator.move(-0.5);
+		// Timer.delay(1);
+		// Robot.elevator.stop();
+		//
+		// // ### 10 ###
+		//
+		// // Backing off while spinning the intake wheel out
+		// Robot.encoders.resetBoth();
+		// while (leftEnc < -50 && rightEnc > -50) {
+		// Robot.driveTrain.runMotors(-1.0, -1.0);
+		// Robot.intake.rotate(0.75);
+		// }
+		// Robot.driveTrain.stop();
+		//
+		// // ######## Code Below Is Commented Out Sample From Kiddy #########
+		//
+		// // run the drive train forward at full throttle
+		// // range: -1.0 to 1.0
+		// // left value = left pretend joystick value
+		// // right value = right pretend joystick value
+		// // Robot.driveTrain.runMotors(1.0, 1.0);
+		//
+		// // timer delay for 2 seconds
+		// // Timer.delay(2);
+		//
+		// // stop the drive train motors
+		// // Robot.driveTrain.stop();
 
 	}
 

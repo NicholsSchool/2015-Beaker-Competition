@@ -21,7 +21,7 @@ public class IntakeOut extends Command {
 	}
 
 	protected void execute() {
-		Robot.intake.rotate(-0.75);
+		Robot.intake.rotate(0.75);
 	}
 
 	protected boolean isFinished() {
