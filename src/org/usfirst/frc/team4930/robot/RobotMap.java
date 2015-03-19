@@ -27,7 +27,6 @@ public class RobotMap {
 	public static SpeedController elevatorPWM3;
 	public static SpeedController elevatorPWM6;
 	public static SpeedController armPWM2;
-	public static SpeedController armPWM7;
 
 	public static Encoder encodersLeftDriveTrain;
 	public static Encoder encodersRightDriveTrain;
@@ -61,9 +60,6 @@ public class RobotMap {
 
 		armPWM2 = new TalonSRX(2);
 		LiveWindow.addActuator("Arm", "PWM2", (TalonSRX) armPWM2);
-
-		armPWM7 = new TalonSRX(7);
-		LiveWindow.addActuator("Arm", "PWM7", (TalonSRX) armPWM7);
 
 	}
 
