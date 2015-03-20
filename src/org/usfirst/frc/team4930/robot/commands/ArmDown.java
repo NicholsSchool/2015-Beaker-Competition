@@ -5,23 +5,23 @@ import org.usfirst.frc.team4930.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * IntakeIn Command
+ * ElevatorUp Command
  * 
- * @author Thomas : Tells the code that it requires the designated "intake" from
- *         the Robot.java file.
+ * @author Thomas : Telling the code that it needs the designated "elevator"
+ *         from the Robot.java file.
  *
  */
-public class IntakeIn extends Command {
+public class ArmDown extends Command {
 
-	public IntakeIn() {
-		requires(Robot.intake);
+	public ArmDown() {
+		requires(Robot.arm);
 	}
 
 	protected void initialize() {
 	}
 
 	protected void execute() {
-		Robot.intake.rotate(0.8);
+		Robot.arm.moveCan(-0.45);
 	}
 
 	protected boolean isFinished() {
@@ -29,11 +29,11 @@ public class IntakeIn extends Command {
 	}
 
 	protected void end() {
-		Robot.intake.stop();
+		Robot.arm.stop();
 	}
 
 	protected void interrupted() {
-		Robot.intake.stop();
+		Robot.arm.stop();
 	}
 
 }

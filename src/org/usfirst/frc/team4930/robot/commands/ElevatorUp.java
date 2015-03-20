@@ -21,7 +21,7 @@ public class ElevatorUp extends Command {
 	}
 
 	protected void execute() {
-		Robot.elevator.move(0.75);
+		Robot.elevator.move(1.0);
 	}
 
 	protected boolean isFinished() {

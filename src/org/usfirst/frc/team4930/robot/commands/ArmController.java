@@ -20,7 +20,7 @@ public class ArmController extends Command {
 	}
 
 	protected void execute() {
-		Robot.arm.moveCan(Robot.oi.joystick2.getX());
+		Robot.arm.moveCan(-Robot.oi.joystick2.getY());
 	}
 
 	protected boolean isFinished() {

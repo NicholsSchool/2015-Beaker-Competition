@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4930.robot.subsystems;
 
 import org.usfirst.frc.team4930.robot.RobotMap;
+import org.usfirst.frc.team4930.robot.commands.ArmController;
 
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -16,6 +17,7 @@ public class Arm extends Subsystem {
 	SpeedController pWM2 = RobotMap.armPWM2;
 
 	public void initDefaultCommand() {
+		setDefaultCommand(new ArmController());
 	}
 
 	public void moveCan(double x) {

@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4930.robot;
 
+import org.usfirst.frc.team4930.robot.commands.ArmDown;
+import org.usfirst.frc.team4930.robot.commands.ArmUp;
 import org.usfirst.frc.team4930.robot.commands.Autonomous;
 import org.usfirst.frc.team4930.robot.commands.ElevatorDown;
 import org.usfirst.frc.team4930.robot.commands.ElevatorUp;
@@ -30,17 +32,22 @@ public class OI {
 	public JoystickButton elevatorUpButton;
 	public JoystickButton elevatorDownButton;
 
+	public JoystickButton elevatorUpOperatorButton;
+
+	public JoystickButton armUpButton;
+	public JoystickButton armDownButton;
+
 	public OI() {
 
 		joystick0 = new Joystick(0);
 		joystick1 = new Joystick(1);
 		joystick2 = new Joystick(2);
 
-		elevatorDownButton = new JoystickButton(joystick0, 1);
-		elevatorDownButton.whileHeld(new IntakeOut());
+		intakeOutButton = new JoystickButton(joystick0, 1);
+		intakeOutButton.whileHeld(new IntakeOut());
 
-		elevatorDownButton = new JoystickButton(joystick1, 1);
-		elevatorDownButton.whileHeld(new IntakeIn());
+		intakeInButton = new JoystickButton(joystick1, 1);
+		intakeInButton.whileHeld(new IntakeIn());
 
 		elevatorUpButton = new JoystickButton(joystick1, 3);
 		elevatorUpButton.whileHeld(new ElevatorUp());
@@ -48,14 +55,21 @@ public class OI {
 		elevatorDownButton = new JoystickButton(joystick1, 2);
 		elevatorDownButton.whileHeld(new ElevatorDown());
 
-		intakeOutButton = new JoystickButton(joystick2, 1);
-		intakeOutButton.whileHeld(new ElevatorUpOperator());
+		elevatorUpOperatorButton = new JoystickButton(joystick2, 1);
+		elevatorUpOperatorButton.whileHeld(new ElevatorUpOperator());
+
+		armUpButton = new JoystickButton(joystick2, 6);
+		armUpButton.whileHeld(new ArmUp());
+
+		armDownButton = new JoystickButton(joystick2, 7);
+		armDownButton.whileHeld(new ArmDown());
 
 		SmartDashboard.putData("Autonomous", new Autonomous());
 		SmartDashboard.putData("IntakeIn", new IntakeIn());
 		SmartDashboard.putData("IntakeOut", new IntakeOut());
 		SmartDashboard.putData("ElevatorUp", new ElevatorUp());
 		SmartDashboard.putData("ElevatorDown", new ElevatorDown());
+		SmartDashboard.putNumber("Joy2 Val", joystick2.getY());
 
 	}
 
