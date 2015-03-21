@@ -6,15 +6,15 @@ import org.usfirst.frc.team4930.robot.subsystems.Elevator;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * ElevatorUpOperator Command
+ * ElevatorDown Command
  * 
  * @author Thomas : Telling the code that it needs the designated "elevator"
- *         from the Robot.java file.
+ *         from the Robot.java file
  *
  */
-public class ElevatorUpOperator extends Command {
+public class ElevatorDownAllTheWay extends Command {
 
-	public ElevatorUpOperator() {
+	public ElevatorDownAllTheWay() {
 		requires(Robot.elevator);
 	}
 
@@ -22,7 +22,9 @@ public class ElevatorUpOperator extends Command {
 	}
 
 	protected void execute() {
-		Robot.elevator.move(Elevator.maintainSpeed);
+		while (Robot.elevator.getPotVal() > Elevator.bottomVal) {
+			Robot.elevator.move(Elevator.downSpeed);
+		}
 	}
 
 	protected boolean isFinished() {

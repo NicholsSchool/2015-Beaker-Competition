@@ -8,10 +8,6 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * 
- */
-
-/**
- * 
  * @author Thomas, Tannay, Sree : Autonomous code this runs once since the
  *         isFinished() method is set to true. This code uses the Robot.java
  *         file's "driveTrain".
@@ -40,9 +36,16 @@ public class Autonomous extends Command {
 
 	protected void dillianAuto() {
 
-		this.moveArm(-0.33, 2.0);
-		this.wait(0.5);
-		this.moveRobot(0.6, 2.0);
+		//
+
+		this.moveArm(-0.45, 2.5);
+		this.wait(1.0);
+
+		// at 0.7 speed
+		// for 2.5 seconds
+		// it travels 11 feet 10 inches
+
+		this.moveRobot(0.7, 2.5);
 
 	}
 
@@ -71,13 +74,17 @@ public class Autonomous extends Command {
 		// 10. back away
 		// 11. intake motors out
 
-		this.moveElevator(1.0, 2.0);
+		this.moveElevator(1.0, 1.0);
 
 		this.moveRobot(0.5, 1.0);
 
 		this.wait(0.5);
 
 		this.moveIntakeIn(3.0);
+
+		this.moveElevator(-1.0, 1.0);
+
+		this.moveElevator(1.0, 1.0);
 
 		this.turnRobotLeft(.25, 1.5);
 

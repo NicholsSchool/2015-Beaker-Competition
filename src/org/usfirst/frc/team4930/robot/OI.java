@@ -4,7 +4,9 @@ import org.usfirst.frc.team4930.robot.commands.ArmDown;
 import org.usfirst.frc.team4930.robot.commands.ArmUp;
 import org.usfirst.frc.team4930.robot.commands.Autonomous;
 import org.usfirst.frc.team4930.robot.commands.ElevatorDown;
+import org.usfirst.frc.team4930.robot.commands.ElevatorDownAllTheWay;
 import org.usfirst.frc.team4930.robot.commands.ElevatorUp;
+import org.usfirst.frc.team4930.robot.commands.ElevatorUpAllTheWay;
 import org.usfirst.frc.team4930.robot.commands.ElevatorUpOperator;
 import org.usfirst.frc.team4930.robot.commands.IntakeIn;
 import org.usfirst.frc.team4930.robot.commands.IntakeOut;
@@ -31,6 +33,8 @@ public class OI {
 	public JoystickButton intakeOutButton;
 	public JoystickButton elevatorUpButton;
 	public JoystickButton elevatorDownButton;
+	public JoystickButton elevatorUpAllTheWayButton;
+	public JoystickButton elevatorDownAllTheWayButton;
 
 	public JoystickButton elevatorUpOperatorButton;
 
@@ -55,6 +59,12 @@ public class OI {
 		elevatorDownButton = new JoystickButton(joystick1, 2);
 		elevatorDownButton.whileHeld(new ElevatorDown());
 
+		elevatorUpAllTheWayButton = new JoystickButton(joystick0, 6);
+		elevatorUpAllTheWayButton.whileHeld(new ElevatorUpAllTheWay());
+
+		elevatorDownAllTheWayButton = new JoystickButton(joystick0, 7);
+		elevatorDownAllTheWayButton.whileHeld(new ElevatorDownAllTheWay());
+
 		elevatorUpOperatorButton = new JoystickButton(joystick2, 1);
 		elevatorUpOperatorButton.whileHeld(new ElevatorUpOperator());
 
@@ -69,7 +79,6 @@ public class OI {
 		SmartDashboard.putData("IntakeOut", new IntakeOut());
 		SmartDashboard.putData("ElevatorUp", new ElevatorUp());
 		SmartDashboard.putData("ElevatorDown", new ElevatorDown());
-		SmartDashboard.putNumber("Joy2 Val", joystick2.getY());
 
 	}
 

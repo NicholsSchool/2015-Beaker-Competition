@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4930.robot.commands;
 
 import org.usfirst.frc.team4930.robot.Robot;
+import org.usfirst.frc.team4930.robot.subsystems.Elevator;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -21,7 +22,9 @@ public class ElevatorDown extends Command {
 	}
 
 	protected void execute() {
-		Robot.elevator.move(-1.0);
+		// if (Robot.elevator.getPotVal() > Elevator.bottomVal) {
+		Robot.elevator.move(Elevator.downSpeed);
+		// }
 	}
 
 	protected boolean isFinished() {
