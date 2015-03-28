@@ -23,7 +23,7 @@ public class ElevatorUpAllTheWay extends Command {
 
 	protected void execute() {
 
-		while (Robot.elevator.getPotVal() < Elevator.topVal) {
+		while (Robot.elevator.getPotVal() > Elevator.topVal) {
 			Robot.elevator.move(Elevator.upSpeed);
 		}
 

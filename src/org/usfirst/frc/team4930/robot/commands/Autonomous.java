@@ -26,7 +26,7 @@ public class Autonomous extends Command {
 
 		RobotMap.driveTrainRobotDrive.setSafetyEnabled(false);
 
-		this.dillianAuto();
+		this.autoFinals();
 		// this.simpleAuto();
 		// this.doNothing();
 		// this.awesomeAuto();
@@ -34,9 +34,15 @@ public class Autonomous extends Command {
 
 	}
 
-	protected void dillianAuto() {
+	protected void autoFinals() {
+		this.moveRobot(-0.65, 4.0);
+		this.wait(0.5);
+		this.moveArm(1.0, 0.5);
+		this.wait(0.5);
+		this.moveRobot(0.7, 2.5);
+	}
 
-		//
+	protected void dillianAuto() {
 
 		this.moveArm(-0.45, 2.5);
 		this.wait(1.0);

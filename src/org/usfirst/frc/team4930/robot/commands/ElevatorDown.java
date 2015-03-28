@@ -23,7 +23,7 @@ public class ElevatorDown extends Command {
 
 	protected void execute() {
 		// if (Robot.elevator.getPotVal() > Elevator.bottomVal) {
-		Robot.elevator.move(Elevator.downSpeed);
+		Robot.elevator.move(Elevator.downSpeedSlow);
 		// }
 	}
 

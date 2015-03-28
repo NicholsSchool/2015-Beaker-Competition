@@ -20,11 +20,12 @@ public class Elevator extends Subsystem {
 	SpeedController pWM3 = RobotMap.elevatorPWM3;
 	SpeedController pWM6 = RobotMap.elevatorPWM6;
 
-	public static double topVal = 1.0;
-	public static double bottomVal = 0.0;
+	public static double topVal = 0.307;
+	public static double bottomVal = 0.440;
 
 	public static double upSpeed = 0.75;
-	public static double downSpeed = -0.33;
+	public static double downSpeed = -0.75;
+	public static double downSpeedSlow = -0.33;
 
 	public static double maintainSpeed = 0.25;
 

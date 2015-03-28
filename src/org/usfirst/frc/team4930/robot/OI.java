@@ -1,7 +1,5 @@
 package org.usfirst.frc.team4930.robot;
 
-import org.usfirst.frc.team4930.robot.commands.ArmDown;
-import org.usfirst.frc.team4930.robot.commands.ArmUp;
 import org.usfirst.frc.team4930.robot.commands.Autonomous;
 import org.usfirst.frc.team4930.robot.commands.ElevatorDown;
 import org.usfirst.frc.team4930.robot.commands.ElevatorDownAllTheWay;
@@ -35,11 +33,10 @@ public class OI {
 	public JoystickButton elevatorDownButton;
 	public JoystickButton elevatorUpAllTheWayButton;
 	public JoystickButton elevatorDownAllTheWayButton;
+	public JoystickButton elevatorUpAllTheWayButton2;
+	public JoystickButton elevatorDownAllTheWayButton2;
 
 	public JoystickButton elevatorUpOperatorButton;
-
-	public JoystickButton armUpButton;
-	public JoystickButton armDownButton;
 
 	public OI() {
 
@@ -50,6 +47,12 @@ public class OI {
 		intakeOutButton = new JoystickButton(joystick0, 1);
 		intakeOutButton.whileHeld(new IntakeOut());
 
+		elevatorUpAllTheWayButton = new JoystickButton(joystick0, 6);
+		elevatorUpAllTheWayButton.whileHeld(new ElevatorUpAllTheWay());
+
+		elevatorDownAllTheWayButton = new JoystickButton(joystick0, 7);
+		elevatorDownAllTheWayButton.whileHeld(new ElevatorDownAllTheWay());
+
 		intakeInButton = new JoystickButton(joystick1, 1);
 		intakeInButton.whileHeld(new IntakeIn());
 
@@ -59,20 +62,14 @@ public class OI {
 		elevatorDownButton = new JoystickButton(joystick1, 2);
 		elevatorDownButton.whileHeld(new ElevatorDown());
 
-		elevatorUpAllTheWayButton = new JoystickButton(joystick0, 6);
-		elevatorUpAllTheWayButton.whileHeld(new ElevatorUpAllTheWay());
-
-		elevatorDownAllTheWayButton = new JoystickButton(joystick0, 7);
-		elevatorDownAllTheWayButton.whileHeld(new ElevatorDownAllTheWay());
-
 		elevatorUpOperatorButton = new JoystickButton(joystick2, 1);
 		elevatorUpOperatorButton.whileHeld(new ElevatorUpOperator());
 
-		armUpButton = new JoystickButton(joystick2, 6);
-		armUpButton.whileHeld(new ArmUp());
+		elevatorUpAllTheWayButton2 = new JoystickButton(joystick2, 6);
+		elevatorUpAllTheWayButton2.whileHeld(new ElevatorUpAllTheWay());
 
-		armDownButton = new JoystickButton(joystick2, 7);
-		armDownButton.whileHeld(new ArmDown());
+		elevatorDownAllTheWayButton2 = new JoystickButton(joystick2, 7);
+		elevatorDownAllTheWayButton2.whileHeld(new ElevatorDownAllTheWay());
 
 		SmartDashboard.putData("Autonomous", new Autonomous());
 		SmartDashboard.putData("IntakeIn", new IntakeIn());
