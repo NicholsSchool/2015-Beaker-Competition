@@ -14,20 +14,20 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Elevator extends Subsystem {
 
-	AnalogPotentiometer elevatorPotentiometer = new AnalogPotentiometer(0, 1.0,
-			0.0);
-
-	SpeedController pWM3 = RobotMap.elevatorPWM3;
-	SpeedController pWM6 = RobotMap.elevatorPWM6;
-
-	public static double topVal = 0.307;
-	public static double bottomVal = 0.440;
+	public static double topVal = 0.299;
+	public static double bottomVal = 0.549;
 
 	public static double upSpeed = 0.75;
 	public static double downSpeed = -0.75;
 	public static double downSpeedSlow = -0.33;
 
 	public static double maintainSpeed = 0.25;
+
+	SpeedController pWM3 = RobotMap.elevatorPWM3;
+	SpeedController pWM6 = RobotMap.elevatorPWM6;
+
+	AnalogPotentiometer elevatorPotentiometer = new AnalogPotentiometer(0, 1.0,
+			0.0);
 
 	public void initDefaultCommand() {
 	}

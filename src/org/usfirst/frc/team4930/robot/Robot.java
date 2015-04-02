@@ -76,8 +76,9 @@ public class Robot extends IterativeRobot {
 
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		SmartDashboard.putNumber("Put Pot Number Val Here",
+		SmartDashboard.putNumber("Elevator Pot Value: ",
 				Robot.elevator.getPotVal());
+		SmartDashboard.putNumber("Arm Pot Value: ", Robot.arm.getPotVal());
 	}
 
 	public void testPeriodic() {

@@ -26,8 +26,6 @@ public class Autonomous extends Command {
 
 		RobotMap.driveTrainRobotDrive.setSafetyEnabled(false);
 
-		// this.autoFinals();
-		// this.simpleAuto();
 		// this.doNothing();
 		// this.awesomeAuto();
 		// this.sampleAuto();
