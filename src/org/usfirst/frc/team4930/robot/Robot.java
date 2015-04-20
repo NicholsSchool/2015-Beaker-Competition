@@ -6,6 +6,10 @@ import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4930.robot.subsystems.Elevator;
 import org.usfirst.frc.team4930.robot.subsystems.Intake;
 
+import com.ni.vision.NIVision;
+import com.ni.vision.NIVision.Image;
+
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -24,6 +28,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
+	int session;
+	Image frame;
+
 	Command autonomousCommand;
 
 	public static OI oi;
@@ -33,8 +40,6 @@ public class Robot extends IterativeRobot {
 	public static Elevator elevator;
 	public static Arm arm;
 
-	// public static Encoders encoders;
-
 	public void robotInit() {
 
 		RobotMap.init();
@@ -43,11 +48,15 @@ public class Robot extends IterativeRobot {
 		intake = new Intake();
 		elevator = new Elevator();
 		arm = new Arm();
-		// encoders = new Encoders();
 
 		oi = new OI();
 
 		autonomousCommand = new Autonomous();
+
+		frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
+		session = NIVision.IMAQdxOpenCamera("cam0",
+				NIVision.IMAQdxCameraControlMode.CameraControlModeController);
+		NIVision.IMAQdxConfigureGrab(session);
 
 	}
 
@@ -72,6 +81,7 @@ public class Robot extends IterativeRobot {
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}
+		NIVision.IMAQdxStartAcquisition(session);
 	}
 
 	public void teleopPeriodic() {
@@ -79,6 +89,8 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Elevator Pot Value: ",
 				Robot.elevator.getPotVal());
 		SmartDashboard.putNumber("Arm Pot Value: ", Robot.arm.getPotVal());
+		NIVision.IMAQdxGrab(session, frame, 1);
+		CameraServer.getInstance().setImage(frame);
 	}
 
 	public void testPeriodic() {
