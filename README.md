@@ -1,4 +1,4 @@
-# 2015Beaker Competition
+# 2015 Beaker Competition
 
 https://github.com/DennisMelamed/FRC-Play-Record-Macro
 
