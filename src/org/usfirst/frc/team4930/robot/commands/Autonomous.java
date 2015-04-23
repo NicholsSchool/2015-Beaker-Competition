@@ -1,5 +1,8 @@
 package org.usfirst.frc.team4930.robot.commands;
 
+import java.io.FileNotFoundException;
+
+import org.usfirst.frc.team4930.robot.BTMacroPlay;
 import org.usfirst.frc.team4930.robot.Robot;
 import org.usfirst.frc.team4930.robot.RobotMap;
 
@@ -17,13 +20,11 @@ public class Autonomous extends Command {
 
 	protected void execute() {
 		RobotMap.driveTrainRobotDrive.setSafetyEnabled(false);
-		// this.autoCenterCanHook();
-		this.newOne();
+		this.replay();
 	}
 
 	protected void newOne() {
-		// raise can all the way up
-		// back up
+		// raise can all the way up, then back up
 		this.moveArm(-0.55, 4.1);
 		this.wait(0.5);
 		this.moveRobot(-0.65, 1.25);
@@ -31,7 +32,28 @@ public class Autonomous extends Command {
 
 	protected void doNothing() {
 	}
-
+	
+	protected void replay()
+    {
+    	BTMacroPlay player = null;
+    	
+    	//try to create a new player
+    	//if there is a file, play, then end
+    	try 
+    	{
+    		player = new BTMacroPlay();
+    		player.play();
+			player.end();
+		} 
+		//if there is a problem, print out an error
+    	//this is a safety routine required by our IDE, eclipse
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+    	
+    }
+	
 	protected void autoCenterCanHook() {
 		this.moveRobot(-0.65, 4.0);
 		this.wait(0.5);

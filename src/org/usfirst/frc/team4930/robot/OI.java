@@ -8,6 +8,7 @@ import org.usfirst.frc.team4930.robot.commands.ElevatorUpAllTheWay;
 import org.usfirst.frc.team4930.robot.commands.ElevatorUpOperator;
 import org.usfirst.frc.team4930.robot.commands.IntakeIn;
 import org.usfirst.frc.team4930.robot.commands.IntakeOut;
+import org.usfirst.frc.team4930.robot.commands.Record;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -35,7 +36,7 @@ public class OI {
 	public JoystickButton elevatorDownAllTheWayButton;
 	public JoystickButton elevatorUpAllTheWayButton2;
 	public JoystickButton elevatorDownAllTheWayButton2;
-
+	public JoystickButton recordButton;
 	public JoystickButton elevatorUpOperatorButton;
 
 	public OI() {
@@ -70,7 +71,10 @@ public class OI {
 
 		elevatorDownAllTheWayButton2 = new JoystickButton(joystick2, 7);
 		elevatorDownAllTheWayButton2.whileHeld(new ElevatorDownAllTheWay());
-
+		
+		recordButton = new JoystickButton(joystick2, 8);
+		recordButton.whenPressed(new Record());
+		
 		SmartDashboard.putData("Autonomous", new Autonomous());
 		SmartDashboard.putData("IntakeIn", new IntakeIn());
 		SmartDashboard.putData("IntakeOut", new IntakeOut());

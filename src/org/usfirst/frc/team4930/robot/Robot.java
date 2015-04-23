@@ -34,7 +34,7 @@ public class Robot extends IterativeRobot {
 	Command autonomousCommand;
 
 	public static OI oi;
-
+//	public static boolean isRecording;
 	public static DriveTrain driveTrain;
 	public static Intake intake;
 	public static Elevator elevator;
@@ -45,6 +45,7 @@ public class Robot extends IterativeRobot {
 		RobotMap.init();
 
 		driveTrain = new DriveTrain();
+//		isRecording=false;
 		intake = new Intake();
 		elevator = new Elevator();
 		arm = new Arm();
