@@ -1,3 +1,6 @@
+![status](https://img.shields.io/badge/status-active-green.svg)
+![version](https://img.shields.io/badge/version-1.0.4-blue.svg)
+
 # 2015 Beaker Competition
 
 https://github.com/DennisMelamed/FRC-Play-Record-Macro
